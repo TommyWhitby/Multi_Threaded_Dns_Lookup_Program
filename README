@@ -1,1 +1,40 @@
 # Multi-Threaded-Dns-Lookup-Program
+DNSResolver
+
+###########################################################
+This program requires files i'm not allowed to publish to run. 
+###########################################################
+
+Overview
+The DNSResolver program is designed to resolve DNS queries using multithreading and synchronization techniques. It reads a list of hostnames from input files, performs DNS lookups for each hostname, and outputs the results to an output file. This program utilizes pthreads for concurrency and semaphores for synchronization.
+
+Features
+Multithreading: The program utilizes multiple threads to concurrently process DNS queries, improving efficiency by taking advantage of parallelism.
+Synchronization: Semaphores are used to synchronize access to shared resources, such as the DNS cache and the queue of hostnames to be resolved, ensuring thread safety.
+DNS Caching: Results of DNS lookups are cached to minimize redundant DNS queries, improving performance by reducing network overhead.
+Input and Output Handling: The program reads hostnames from input files specified as command-line arguments and writes the results of DNS queries to an output file.
+
+Compilation
+To compile the program, run the following command:
+
+gcc -o th-lookup th-lookup.c -lpthread
+
+Execution
+The program can be executed with the following command:
+
+./th-lookup <inputFilePath1> <inputFilePath2> ... <outputFilePath>
+
+Replace <inputFilePath1>, <inputFilePath2>, etc., with the paths to the input files containing hostnames to be resolved. <outputFilePath> should be replaced with the path to the output file where the results will be written.
+
+Input File Format
+Each input file should contain a list of hostnames, with one hostname per line.
+
+Output
+The program will output the results of DNS queries to the specified output file. Each line in the output file will contain the following information:
+
+<count>, <hostname>, <IP>
+Where:
+
+<count>: The number of times the hostname appeared in the input files.
+<hostname>: The hostname.
+<IP>: The corresponding IP address obtained from DNS resolution.
