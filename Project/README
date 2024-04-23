@@ -1,0 +1,24 @@
+COMP 2291/6291 (Operating Systems)
+Macquarie University
+Programming Assignment 1
+Student ID: 47912006
+Student Name: Thomas Whitby
+
+---Files---
+input - names*.txt input files
+
+---Executables---
+th-lookup - Threaded dns query-er
+
+---Examples---
+Build:
+ make all
+
+Clean:
+ make clean
+
+Lookup DNS info for all names files in input folder:
+ ./th-lookup names*.txt results.txt
+
+Check th-lookup for memory leaks:
+ valgrind ./th-lookup names*.txt results.txt
